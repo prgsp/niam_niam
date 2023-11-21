@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<style>
+			.collapsible {
+				background-color: #777;
+				color: white;
+				cursor: pointer;
+				padding: 18px;
+				width: 100%;
+				border: none;
+				text-align: left;
+				outline: none;
+				font-size: 15px;
+			}
+
+			.active,
+			.collapsible:hover {
+				background-color: #555;
+			}
+
+			.collapsible:after {
+				content: '\002B';
+				color: white;
+				font-weight: bold;
+				float: right;
+				margin-left: 5px;
+			}
+
+			.active:after {
+				content: '\2212';
+			}
+
+			.content {
+				padding: 0 18px;
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 0.2s ease-out;
+				background-color: #f1f1f1;
+			}
+
+			.table-row {
+				display: flex;
+				flex-direction: column;
+				margin-bottom: 10px;
+			}
+
+			.table-cell {
+				display: none;
+			}
+			table {
+				text-align: center;
+				width: 100%;
+			}
+			th,
+			td {
+				border-right: 1px solid white;
+			}
+
+			th:last-child,
+			td:last-child {
+				border-right: none;
+			}
+
+			@media only screen and (max-width: 768px) {
+				.table-cell {
+					display: block;
+				}
+				table {
+					display: flex;
+					flex-direction: column;
+					background: blue;
+				}
+			}
+		</style>
+
+		<style>
+			.table-container {
+				overflow-x: auto;
+				max-width: 100%;
+			}
+			/* Password prompt styles */
+			.password-modal {
+				display: none;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.5);
+				justify-content: center;
+				align-items: center;
+				z-index: 1000;
+			}
+
+			.password-modal-content {
+				background: #fff;
+				padding: 20px;
+				border-radius: 5px;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+				text-align: center;
+			}
+
+			.password-input {
+				padding: 10px;
+				margin-bottom: 10px;
+				width: 100%;
+				box-sizing: border-box;
+			}
+
+			.password-submit {
+				padding: 10px;
+				background-color: #4caf50;
+				color: white;
+				border: none;
+				border-radius: 3px;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>Niam niam niam</h2>
+		<div class="table-container">
+			<!-- Monday -->
+			<div class="table-row">
+				<button class="collapsible">Pirmadienis</button>
+				<div class="content">
+					<table>
+						<tr>
+							<th>Pusryčiai</th>
+							<th>Užkandis</th>
+							<th>Pietūs</th>
+							<th>Užkandis</th>
+							<th>Vakarienė</th>
+						</tr>
+						<tr>
+							<td>Avižinių dribsnių košė su bananu ir riešutais</td>
+							<td>Lazdyno riešutų sauja; apelsino puse</td>
+							<td>Vištienos salotos su žalumynais ir alyvuogių aliejumi</td>
+							<td>Apelsinas</td>
+							<td>Keptas lydekos su bulvėmis ir brokoliais</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+			<!-- Tuesday -->
+			<div class="table-row">
+				<button class="collapsible">Antradienis</button>
+				<div class="content">
+					<table>
+						<tr>
+							<th>Pusryčiai</th>
+							<th>Užkandis</th>
+							<th>Pietūs</th>
+							<th>Užkandis</th>
+							<th>Vakarienė</th>
+						</tr>
+						<tr>
+							<td>Ruginės duonos sumuštinis su avokadu ir kiaušiniu</td>
+							<td>Sauga graikiniu riesutu</td>
+							<td>Troškinti daržovės su tofu</td>
+							<td>Obuolys</td>
+							<td>Juodųjų pupelių troškinys su pilno grūdo ryžiais</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+			<!-- Wednesday -->
+			<div class="table-row">
+				<button class="collapsible">Trečiadienis</button>
+				<div class="content">
+					<table>
+						<tr>
+							<th>Pusryčiai</th>
+							<th>Užkandis</th>
+							<th>Pietūs</th>
+							<th>Užkandis</th>
+							<th>Vakarienė</th>
+						</tr>
+						<tr>
+							<td>Varškės blynai su braškėmis</td>
+							<td>Sauja migdolo riesutu; Apelsinas</td>
+							<td>Vištienos kepsneliai su bulvėmis ir šparagais</td>
+							<td>Grikių sausainiai</td>
+							<td>Avokado ir žuvies taco su salotomis</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+			<!-- Thursday -->
+			<div class="table-row">
+				<button class="collapsible">Ketvirtadienis</button>
+				<div class="content">
+					<table>
+						<tr>
+							<th>Pusryčiai</th>
+							<th>Užkandis</th>
+							<th>Pietūs</th>
+							<th>Užkandis</th>
+							<th>Vakarienė</th>
+						</tr>
+						<tr>
+							<td>Jogurtas su musli ir šviežiomis uogomis</td>
+							<td>ryziu trapuciai su riesutu sviestu;</td>
+							<td>Ryžių makaronai su daržovėmis ir vištiena</td>
+							<td>Apelsinas</td>
+							<td>Troškinti daržovės su kepta kiauliena</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+			<!-- Friday -->
+			<div class="table-row">
+				<button class="collapsible">Penktadienis</button>
+				<div class="content">
+					<table>
+						<tr>
+							<th>Pusryčiai</th>
+							<th>Užkandis</th>
+							<th>Pietūs</th>
+							<th>Užkandis</th>
+							<th>Vakarienė</th>
+						</tr>
+						<tr>
+							<td>Avižinės kruopos su kiviais ir medumi</td>
+							<td>suja lazdynu riesutu;</td>
+							<td>Kuskusas su triušienos troškiniu ir daržovėmis</td>
+							<td>Obuolys</td>
+							<td>Vištienos šašlykas su bulvėmis ir žalumynais</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+			<!-- Saturday -->
+			<div class="table-row">
+				<button class="collapsible">Šeštadienis</button>
+				<div class="content">
+					<table>
+						<tr>
+							<th>Pusryčiai</th>
+							<th>Užkandis</th>
+							<th>Pietūs</th>
+							<th>Užkandis</th>
+							<th>Vakarienė</th>
+						</tr>
+						<tr>
+							<td>Omeletas su pomidorais, špinatais ir fetos sūriu</td>
+							<td>sauja graikiniu riesutu;</td>
+							<td>Plovas su daržovėmis ir jūros gėrybėmis</td>
+							<td>Vaisiu salotos</td>
+							<td>Kalakutienos kepsneliai su bulvėmis ir žirniais</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+			<!-- Sunday -->
+			<div class="table-row">
+				<button class="collapsible">Sekmadienis</button>
+				<div class="content">
+					<table>
+						<tr>
+							<th>Pusryčiai</th>
+							<th>Užkandis</th>
+							<th>Pietūs</th>
+							<th>Užkandis</th>
+							<th>Vakarienė</th>
+						</tr>
+						<tr>
+							<td>Viso grūdo sumuštinis su ricota sūriu ir medumi</td>
+							<td>jogurtas be laktozes su kivi;</td>
+							<td>Troškintos vištienos šlaunelės su bulvėmis ir morkomis</td>
+							<td>apelsinas</td>
+							<td>Pica su pilno grūdo tešla, pomidorais ir žalumynais</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<!-- Password Modal -->
+		<div id="passwordModal" class="password-modal">
+			<div class="password-modal-content">
+				<label for="password" style="font-size: 18px">Enter Password:</label>
+				<input type="password" id="password" class="password-input" />
+				<button onclick="checkPassword()" class="password-submit">
+					Submit
+				</button>
+			</div>
+		</div>
+
+		<script>
+			var coll = document.getElementsByClassName('collapsible')
+			var i
+
+			for (i = 0; i < coll.length; i++) {
+				coll[i].addEventListener('click', function () {
+					this.classList.toggle('active')
+					var content = this.nextElementSibling
+					if (content.style.maxHeight) {
+						content.style.maxHeight = null
+					} else {
+						content.style.maxHeight = content.scrollHeight + 'px'
+					}
+				})
+			}
+			// Show password modal
+			function showPasswordModal() {
+				var modal = document.getElementById('passwordModal')
+				modal.style.display = 'flex'
+			}
+
+			// Check the entered password
+			function checkPassword() {
+				var password = document.getElementById('password').value
+				// Replace 'your_password' with your actual password
+				if (password === 'feja2') {
+					var modal = document.getElementById('passwordModal')
+					modal.style.display = 'none'
+					document.body.style.overflow = 'auto' // Enable scrolling
+					alert('Jėgelė!!!')
+				} else {
+					alert('Ne toks žodis. Bandyk vėl!')
+					document.getElementById('password').value = '' // Clear the input field
+					window.location.href = window.location.href
+				}
+			}
+
+			// Blur background on modal display
+			document
+				.getElementById('passwordModal')
+				.addEventListener('click', function (e) {
+					if (e.target.id === 'passwordModal') {
+						document.body.style.overflow = 'hidden' // Disable scrolling
+					}
+				})
+
+			// Close modal if Escape key is pressed
+			document.addEventListener('keydown', function (e) {
+				if (e.key === 'Escape') {
+					var modal = document.getElementById('passwordModal')
+					modal.style.display = 'none'
+					document.body.style.overflow = 'auto' // Enable scrolling
+				}
+			})
+
+			// Close modal if close button is clicked
+			document
+				.querySelector('.password-modal-content .password-submit')
+				.addEventListener('click', function () {
+					var modal = document.getElementById('passwordModal')
+					modal.style.display = 'none'
+					document.body.style.overflow = 'auto' // Enable scrolling
+				})
+
+			// Call showPasswordModal function when the window has finished loading
+			window.onload = function () {
+				showPasswordModal()
+			}
+		</script>
+	</body>
+</html>
