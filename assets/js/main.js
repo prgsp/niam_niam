@@ -28,7 +28,9 @@ function checkPassword() {
 		document.body.style.overflow = 'auto' // Enable scrolling
 		alert('Jėgelė!!!')
 	} else {
-		alert('Ne toks žodis. Bandyk vėl!')
+		alert(
+			'Ne, ne, ne. Bloooooogai!!! Net nebandyk dar kartą, nes tikrai nepavyks! Ar pavyks? Tai apsispręsk gal kąąą?',
+		)
 		document.getElementById('password').value = '' // Clear the input field
 		window.location.href = window.location.href
 	}
